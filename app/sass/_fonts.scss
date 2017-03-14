@@ -1,49 +1,54 @@
 
 /* Шрифты */
-/* font-family: "RalewayRegular"; */
+/* font-family: "MontserratRegular"; */
 @font-face {
-	font-family: "RalewayRegular";
-	src: url("../fonts/RalewayRegular/raleway-regular.woff") format("woff"),
-	url("../fonts/RalewayRegular/raleway-regular.woff2") format("woff2");
+	font-family: "MontserratRegular";
+	src: url("../fonts/MontserratRegular/Montserrat-Regular.woff") format("woff"),
+	url("../fonts//MontserratRegular/Montserrat-Regular.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 }
-/* font-family: "RalewayMedium"; */
+/* font-family: "MontserratBold"; */
 @font-face {
-	font-family: "RalewayMedium";
-	src: url("../fonts/RalewayMedium/raleway-medium.woff") format("woff"),
-	url("../fonts/RalewayMedium/raleway-medium.woff2") format("woff2");
+	font-family: "MontserratBold";
+	src: url("../fonts//MontserratBold/Montserrat-Bold.woff") format("woff"),
+	url("../fonts//MontserratBold/Montserrat-Bold.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 }
-/* font-family: "RalewayBold"; */
+/* font-family: "UbuntuRegular"; */
 @font-face {
-	font-family: "RalewayBold";
-	src: url("../fonts/RalewayBold/raleway-bold.woff") format("woff"),
-	url("../fonts/RalewayBold/raleway-bold.woff2") format("woff2");
+	font-family: "UbuntuRegular";
+	src: url("../fonts//UbuntuRegular/Ubuntu-R.woff") format("woff"),
+	url("../fonts/UbuntuRegular/Ubuntu-R.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 }
-/* font-family: "RalewayExtraBold"; */
+/* font-family: "UbuntuMedium"; */
 @font-face {
-	font-family: "RalewayExtraBold";
-	src: url("../fonts/RalewayExtraBold/raleway-extrabold.woff") format("woff"),
-	url("../fonts/RalewayExtraBold/raleway-extrabold.woff2") format("woff2");
+	font-family: "UbuntuMedium";
+	src: url("../fonts/UbuntuMedium/Ubuntu-Medium.woff") format("woff"),
+	url("../fonts/UbuntuMedium/Ubuntu-Medium.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+/* font-family: "UbuntuBold"; */
+@font-face {
+	font-family: "UbuntuBold";
+	src: url("../fonts/UbuntuBold/Ubuntu-Bold.woff") format("woff"),
+	url("../fonts/UbuntuBold/Ubuntu-Bold.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 }
 
-@mixin Raleway($style: "regular") {
+@mixin Ubuntu($style: "regular") {
 	@if ($style == "regular") {
-		font-family: "RalewayRegular";
+		font-family: "UbuntuRegular";
 		}
 	@else if ($style == "medium") {
-		font-family: "RalewayMedium";
+		font-family: "UbuntuMedium";
 	}
 	@else if($style == "bold") {
-		font-family: "RalewayBold";
-	}
-	@else if($style == "extrabold") {
-		font-family: "RalewayExtraBold";
+		font-family: "UbuntuBold";
 	}
 }
