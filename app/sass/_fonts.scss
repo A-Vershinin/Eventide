@@ -1,0 +1,49 @@
+
+/* Шрифты */
+/* font-family: "RalewayRegular"; */
+@font-face {
+	font-family: "RalewayRegular";
+	src: url("../fonts/RalewayRegular/raleway-regular.woff") format("woff"),
+	url("../fonts/RalewayRegular/raleway-regular.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+/* font-family: "RalewayMedium"; */
+@font-face {
+	font-family: "RalewayMedium";
+	src: url("../fonts/RalewayMedium/raleway-medium.woff") format("woff"),
+	url("../fonts/RalewayMedium/raleway-medium.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+/* font-family: "RalewayBold"; */
+@font-face {
+	font-family: "RalewayBold";
+	src: url("../fonts/RalewayBold/raleway-bold.woff") format("woff"),
+	url("../fonts/RalewayBold/raleway-bold.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+/* font-family: "RalewayExtraBold"; */
+@font-face {
+	font-family: "RalewayExtraBold";
+	src: url("../fonts/RalewayExtraBold/raleway-extrabold.woff") format("woff"),
+	url("../fonts/RalewayExtraBold/raleway-extrabold.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin Raleway($style: "regular") {
+	@if ($style == "regular") {
+		font-family: "RalewayRegular";
+		}
+	@else if ($style == "medium") {
+		font-family: "RalewayMedium";
+	}
+	@else if($style == "bold") {
+		font-family: "RalewayBold";
+	}
+	@else if($style == "extrabold") {
+		font-family: "RalewayExtraBold";
+	}
+}
