@@ -50,7 +50,8 @@ gulp.task("styles", function() {
     .pipe(sourcemaps.init()) //История изменения стилей, которая помогает нам при отладке в devTools.
     .pipe(sass({errLogToConsole: true}))   //Преобразуем Sass в CSS
     .pipe(postcss([  //Добавляем префиксы под разные версии
-      autoprefixer({browsers: ["> 2%"],  cascade: true }),
+      // autoprefixer({browsers: ["> 2%"],  cascade: true }),
+      autoprefixer({browsers: ["> 2%"]}),
       mqpacker({
         sort: true //соеденяем все медиазапросы
       })
@@ -92,7 +93,7 @@ gulp.task("serve", function() {
     ui: false
   });
 
-  gulp.watch("app/sass/**/*.{scss,sass}", ["style"]);  //Наблюдение за scss файлами в папке scss
+  gulp.watch("app/sass/**/*.{scss,sass}", ["styles"]);  //Наблюдение за scss файлами в папке scss
   gulp.watch("app/js/*.js", ["JsChange"]);  //Наблюдение за js файлами в папке проекта
   gulp.watch("app/*.html", ["htmlChange"]); //Наблюдение за html файлами в папке проекта
   gulp.watch("build/**/*").on("change", server.reload);

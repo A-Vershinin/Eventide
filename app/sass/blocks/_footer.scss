@@ -1,5 +1,9 @@
 .footer {
   position: relative;
+
+}
+.footer__copyright {
+  background-color: $bg-7;
 }
 
 @media screen and #{($desktop-point-widths-des)} {
