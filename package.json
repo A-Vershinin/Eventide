@@ -1,5 +1,5 @@
 {
-  "name": "styletour",
+  "name": "Eventide",
   "version": "1.0.0",
   "private": true,
   "description": "",
@@ -20,6 +20,7 @@
     "del": "^2.2.2",
     "editorconfig-tools": "^0.1.1",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-cache": "^0.4.5",
     "gulp-cheerio": "^0.6.2",
     "gulp-compass": "^2.1.0",
@@ -37,6 +38,7 @@
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0",
     "gulp-uglifyjs": "^0.6.2",
+    "gulp-uncss": "^1.0.6",
     "gulp-useref": "^3.1.2",
     "gulp-util": "^3.0.7",
     "gulp-wiredep": "^1.1.0",

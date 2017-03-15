@@ -4,33 +4,41 @@ var gulp = require("gulp"), //подключаем Gulp
     sass = require("gulp-sass"), //подключаем Sass-пакет
     plumber = require("gulp-plumber"), //подключаем Пламбер
     postcss = require("gulp-postcss"), //подключаем postcss
-    autoprefixer = require("autoprefixer"), //подключаем автопрефиксы
+    autoprefixerR = require('gulp-autoprefixer'), //подключаем автопрефиксы
+    autoprefixer = require("autoprefixer"), //postcss плагин
     gutil = require("gulp-util"), //различные утилиты для разработки
     csso = require("gulp-csso"), //сжимаем css-файлы
+    uncss = require('gulp-uncss'), //удалямем не использованный css
     rename = require("gulp-rename"), //переименовываем файлы
     imagemin = require("gulp-imagemin"), //сжимаем картинки
+    spritesmith = require('gulp.spritesmith'), //собираем спрайты png
     svgstore = require("gulp-svgstore"), //создаём svg-спрайт
     svgmin = require("gulp-svgmin"), //сжимаем svg
-    concat = require("gulp-concat"), //склеивания файлы
+    concat = require("gulp-concat"), //склеиваим файлы
     uglify = require("gulp-uglifyjs"), //сжимаем все js файлы
     mqpacker = require("css-mqpacker"),//склеиваем все медиазапросы
     run = require("run-sequence"), //последовательная работа тасков
     del = require("del"), //удаляем файлы
-    sourcemaps = require('gulp-sourcemaps'), //добавление путей в сасс файлы
+    sourcemaps = require('gulp-sourcemaps'), //добавление путей в файлы
     notify = require('gulp-notify'), //представление ошибок в удобном виде
     compass = require('gulp-compass'),
-    useref = require('gulp-useref'), //объединение файлов в один
-    // по указанным в разметке html комментариев.
-    gulpif = require('gulp-if'),
+    useref = require('gulp-useref'), //объединение файлов в один по указанной разметке в комментариях.
+    gulpif = require('gulp-if'), //выполение при условиях
     wiredep = require('gulp-wiredep'), //добавление ссылок на плагины bower.
     replace = require('gulp-replace'), //фиксинг некоторых багов
-    // cache = require('gulp-cache'), //кешируем
-    spritesmith = require('gulp.spritesmith'),
-    cheerio = require('gulp-cheerio'),
+    cache = require('gulp-cache'), //кешируем
+    cheerio = require('gulp-cheerio'), //вспомогательный плагин
     server = require("browser-sync"); //браузер-синк(слежение в браузере)
 
-gulp.task("style", function() { //Создаём таск "style"
-  gulp.src("app/sass/style.scss")   //Берём файл sass для обработки
+
+// var production = process.env.NODE_ENV === 'production';
+// .pipe(_if(!production, sourcemaps.init())) // для сорсмепов в дев-режиме
+// .pipe(_if(production, csso())) // в продакшене жмем
+// .pipe(_if(!production, sourcemaps.write())) // пишем сормепы в дев-режиме
+// .pipe(_if(production, gzip())) // если продакшен - жмем gzip
+
+gulp.task("styles", function() {
+  gulp.src("app/sass/style.scss")
     .pipe(plumber({ //Запрещаем ошибкам прерывать скрипт
       errorHandler: notify.onError(function(err) { // nofity - представление ошибок в удобном для вас виде.
         return {
@@ -42,15 +50,16 @@ gulp.task("style", function() { //Создаём таск "style"
     .pipe(sourcemaps.init()) //История изменения стилей, которая помогает нам при отладке в devTools.
     .pipe(sass({errLogToConsole: true}))   //Преобразуем Sass в CSS
     .pipe(postcss([  //Добавляем префиксы под разные версии
-      autoprefixer({browsers: ["> 2%"]}),
+      autoprefixer({browsers: ["> 2%"],  cascade: true }),
       mqpacker({
         sort: true //соеденяем все медиазапросы
       })
     ]))
-    .pipe(gulp.dest("build/css"))  //Выгружаем результаты в папку build/css
-    .pipe(csso())  //Делаем минификацию кода.
-    .pipe(sourcemaps.write())
-    .pipe(rename("style.min.css")) //переименовываем файл style в style.min
+    .pipe(sourcemaps.write()) //записываем пути
+    .pipe(gulp.dest("build/css"))
+    .pipe(csso())  //минификация кода.
+    // .pipe(rename("style.min.css")) //переименовываем файл style в style.min.css
+    .pipe(rename({suffix: '.min'})) //переименовываем файл style в style.min.css
     .pipe(gulp.dest("build/css")) //выгружаем в build/css
     .pipe(server.reload({stream: true})); //После сборки делаем перезагрузку страницы
 });
@@ -99,8 +108,10 @@ gulp.task("clean", function() {
 gulp.task("copy", function() {
   return gulp.src([
     "app/fonts/**/*.{woff,woff2}",
+    "app/favicons/*.*",
     "app/img/**/*",
     "app/js/**",
+    "app/php/**",
     "app/*.html"
   ], {
     base: "app"
@@ -122,14 +133,14 @@ gulp.task("images", function() {
       imagemin.optipng({optimizationLevel: 3}),
       imagemin.jpegtran({progressive: true})
     ]))
-    // .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+    // .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     // используем кеширование для избежания пересжатия уже сжатых изображений каждый раз при запусске задач.
     // нужнен плагин gulp-cahce
     // .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
     .pipe(gulp.dest("build/img"));
 });
 //svg спрайт
-gulp.task("svg-sprite", function() {
+gulp.task("svg:sprite", function() {
   return gulp.src("build/img/icons/*.svg")
     .pipe(svgmin({
       js2svg: {
@@ -157,7 +168,7 @@ gulp.task("svg-sprite", function() {
 });
 
 //png-sprite
-gulp.task('png-sprite', function() {
+gulp.task('png:sprite', function() {
   var spriteData = gulp.src("app/img/icons/*.png")
 		.pipe(spritesmith({
     imgName: 'png-sprite.png',
@@ -170,13 +181,6 @@ gulp.task('png-sprite', function() {
   spriteData.img.pipe(gulp.dest("build/img"));
 });
 
-// Копируем favicons
-gulp.task("favicons", function() {
-  return gulp.src([
-    "app/favicons/*.*"
-  ])
-  .pipe(gulp.dest("build/favicons"));
-});
 // Остальные файлы и пр.
 gulp.task("extras", function() {
   return gulp.src([
@@ -185,34 +189,52 @@ gulp.task("extras", function() {
   ])
   .pipe(gulp.dest("build"));
 });
+//css-библиотеки
+gulp.task("css:vendor", function() {
+  return gulp.src("build/css/vendor.css")
+  .pipe(sourcemaps.init())
+  .pipe(uncss({ //чистим файл от неиспользованного css
+    html: ['build/*.html']
+  }))
+  .pipe(csso())
+  .pipe(sourcemaps.write())
+  .pipe(rename("vendor.min.css"))
+  .pipe(gulp.dest("build/css"));
+});
 //js-common
-gulp.task("js-common", function() {
+gulp.task("js:common", function() {
   return gulp.src("app/js/common.js")
+  .pipe(sourcemaps.init())
   .pipe(gulp.dest("build/js"))
   .pipe(uglify())
   .pipe(rename("common.min.js"))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest("build/js"))
 });
 //js-библиотеки
-gulp.task("js-libs", function() {
-  return gulp.src("build/js/libs.js")
+gulp.task("js:vendor", function() {
+  return gulp.src("build/js/vendor.min.js")
+  .pipe(sourcemaps.init())
   .pipe(uglify())
-  .pipe(rename("libs.min.js"))
+  .pipe(sourcemaps.write())
+  .pipe(rename("vendor.min.js"))
   .pipe(gulp.dest("build/js"));
 });
 //js-polyfills
-gulp.task("js-polyfills", function() {
+gulp.task("js:polyfills", function() {
   return gulp.src("build/js/polyfills.min.js")
   .pipe(uglify())
   .pipe(rename("polyfills.min.js"))
   .pipe(gulp.dest("build/js"));
 });
-//css-библиотеки
-gulp.task("css-libs", function() {
-  return gulp.src("build/css/libs.css")
-  .pipe(csso())
-  .pipe(rename("libs.min.css"))
-  .pipe(gulp.dest("build/css"))
+
+//php
+gulp.task("php", function() {
+  return gulp.src("app/**/*.php")
+  .pipe(sourcemaps.init())
+  .pipe(gulp.dest("build/php"))
+  .pipe(sourcemaps.write())
+  .pipe(reload({stream : true}));
 });
 //Иконочные шрифты
 gulp.task("icon-fonts", function() {
@@ -226,16 +248,15 @@ gulp.task("build", function(fn) {
     "clean",
     // "icon-fonts",
     "copy",
-    "style",
+    "styles",
+    "css:vendor",
+    "js:common",
     "images",
-    "svg-sprite",
-    "png-sprite",
-    "js-common",
+    "png:sprite",
+    "svg:sprite",
+    "js:vendor",
+    "js:polyfills",
     "useref",
-    "js-libs",
-    "js-polyfills",
-    "css-libs",
-    "favicons",
     "extras",
     fn
   );
@@ -263,3 +284,6 @@ gulp.task("watch", function(){
 });
 
 gulp.task("default", ["serve", "watch"]);
+
+
+//todo сделать таски : JSlint, ES6 синтаксис, gh-pages в гит, тесты, wc3 таск проверки
