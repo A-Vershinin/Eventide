@@ -15,10 +15,10 @@
 
   <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
   <!-- build:css css/vendor.css -->
-  <link href="bower/normalize-css/normalize.css" rel="stylesheet">
-  <link href="bower/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="bower/normalize-css/normalize.css">
+  <link rel="stylesheet" href="bower/bootstrap/dist/css/bootstrap.css">
   <!-- endbuild -->
-  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -73,15 +73,78 @@
           </div>
         </div>
       </div>
-
-
     </header>
     <!-- END HEADER -->
 
     <!-- MAIN CONTENT -->
     <main class="content">
-      <section class="event">
+      <section class="event" id="event">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="event__desc">
+                <h2 class="event__title">Main Goals Of The Event</h2>
+                <p class="event__text event__text--lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Nostrum odit illo perspiciatis, obcaecati laboriosam iure, optio excepturi Lorem ipsum dolor.
+                  laudantium!</p>
+                <p class="event__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae modi
+                  blanditiis labore id perferendis eaque voluptatum. Voluptates nisi quibusdam earum placeat,
+                  ducimus ullam ipsum temporibus tempora ipsa minima, inventore culpa sunt harum nobis necessitatibus
+                  quisquam molestiae odio corporis at? Ducimus.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="event__tabs">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                  <li role="presentation" class="active">
+                    <a href="#objective" aria-controls="objective" role="tab" data-toggle="tab">Learning Objective</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#audience" aria-controls="audience" role="tab" data-toggle="tab">Target Audience</a>
+                  </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="objective">
+                    <p class="event__tab-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odot
+                      aut fugit, sed quia consequuntur magni dolores eos.</p>
+                    <ul class="event__tab-list">
+                      <li class="event__tab-list-item">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>Nemo enim ipsam voluptatem
+                      </li>
+                      <li class="event__tab-list-item">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>Neque porro quisquam est
+                      </li>
+                      <li class="event__tab-list-item">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>Quis autem vel eum
+                      </li>
+                      <li class="event__tab-list-item">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>Lorem ipsum dolor sit amet
+                      </li>
+                    </ul>
+                    <div class="event__tab-img"></div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="audience">
+                    <p class="event__tab-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quos
+                      natus rem dicta, soluta fugiat?</p>
+                  </div>
+                </div>
+              </div>
 
+
+
+            </div>
+          </div>
+        <div class="event__speakers">
+          <h2 class="event__speakers-title">Event Speakers</h2>
+          <div class="event__speakers-desc">Sed ut perspiciatis unde omnis iste natus error</div>
+          <div class="row">
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+        </div>
       </section>
     </main>
     <!-- END MAIN CONTENT -->
@@ -123,14 +186,15 @@
   </div>
 
   <!-- polyfills -->
-  <!--build:js js/polyfills.min.js -->
+  <!--build:js js/polyfills.js -->
   <script src="./bower/picturefill/dist/picturefill.js"></script>
   <!-- endbuild -->
 
 
   <!-- vendor scripts -->
-  <!-- build:js js/vendor.min.js -->
+  <!-- build:js js/vendor.js -->
   <script src="./bower/jquery/dist/jquery.js"></script>
+  <script src="./bower/bootstrap/dist/js/bootstrap.js"></script>
 
   <!-- endbuild -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script> -->

@@ -64,6 +64,17 @@
     &--gray {
       background-color: $gray-2;
     }
+    &:hover {
+      background-color: $accent;
+    }
+    &:active {
+      color: $light-1;
+      background-color: $accent-active;
+    }
+    &:focus {
+      color: $light-1;
+      outline: none;
+    }
   }
   .fa {
     margin-left: 6px;

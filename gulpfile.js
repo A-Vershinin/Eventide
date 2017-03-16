@@ -48,10 +48,14 @@ gulp.task("styles", function() {
       })
     }))
     .pipe(sourcemaps.init()) //История изменения стилей, которая помогает нам при отладке в devTools.
-    .pipe(sass({errLogToConsole: true}))   //Преобразуем Sass в CSS
-    .pipe(postcss([  //Добавляем префиксы под разные версии
-      // autoprefixer({browsers: ["> 2%"],  cascade: true }),
-      autoprefixer({browsers: ["> 2%"]}),
+    .pipe(sass({
+      errLogToConsole: true,
+      "sourcemap=none": true,
+      noCache: true,
+      compass: true
+    }))
+    .pipe(postcss([
+      autoprefixer({browsers: ["last 3 versions", "> 2%"], cascade: false}),
       mqpacker({
         sort: true //соеденяем все медиазапросы
       })
@@ -59,7 +63,6 @@ gulp.task("styles", function() {
     .pipe(sourcemaps.write()) //записываем пути
     .pipe(gulp.dest("build/css"))
     .pipe(csso())  //минификация кода.
-    // .pipe(rename("style.min.css")) //переименовываем файл style в style.min.css
     .pipe(rename({suffix: '.min'})) //переименовываем файл style в style.min.css
     .pipe(gulp.dest("build/css")) //выгружаем в build/css
     .pipe(server.reload({stream: true})); //После сборки делаем перезагрузку страницы
@@ -193,13 +196,12 @@ gulp.task("extras", function() {
 //css-библиотеки
 gulp.task("css:vendor", function() {
   return gulp.src("build/css/vendor.css")
-  .pipe(sourcemaps.init())
   .pipe(uncss({ //чистим файл от неиспользованного css
     html: ['build/*.html']
   }))
   .pipe(csso())
-  .pipe(sourcemaps.write())
-  .pipe(rename("vendor.min.css"))
+  .pipe(rename({suffix: '.min'}))
+  // .pipe(rename("vendor.min.css"))
   .pipe(gulp.dest("build/css"));
 });
 //js-common
@@ -207,25 +209,26 @@ gulp.task("js:common", function() {
   return gulp.src("app/js/common.js")
   .pipe(sourcemaps.init())
   .pipe(gulp.dest("build/js"))
-  .pipe(uglify())
-  .pipe(rename("common.min.js"))
   .pipe(sourcemaps.write())
+  .pipe(uglify())
+  .pipe(rename({suffix: '.min'}))
+  // .pipe(rename("common.min.js"))
   .pipe(gulp.dest("build/js"))
 });
 //js-библиотеки
 gulp.task("js:vendor", function() {
-  return gulp.src("build/js/vendor.min.js")
-  .pipe(sourcemaps.init())
+  return gulp.src("build/js/vendor.js")
   .pipe(uglify())
-  .pipe(sourcemaps.write())
-  .pipe(rename("vendor.min.js"))
+  .pipe(rename({suffix: '.min'}))
+  // .pipe(rename("vendor.min.js"))
   .pipe(gulp.dest("build/js"));
 });
 //js-polyfills
 gulp.task("js:polyfills", function() {
-  return gulp.src("build/js/polyfills.min.js")
+  return gulp.src("build/js/polyfills.js")
   .pipe(uglify())
-  .pipe(rename("polyfills.min.js"))
+  .pipe(rename({suffix: '.min'}))
+  // .pipe(rename("polyfills.min.js"))
   .pipe(gulp.dest("build/js"));
 });
 
@@ -249,6 +252,7 @@ gulp.task("build", function(fn) {
     "clean",
     // "icon-fonts",
     "copy",
+    "useref",
     "styles",
     "css:vendor",
     "js:common",
@@ -257,7 +261,6 @@ gulp.task("build", function(fn) {
     "svg:sprite",
     "js:vendor",
     "js:polyfills",
-    "useref",
     "extras",
     fn
   );

@@ -16,6 +16,8 @@ $gray-3: #828689;
 $gray-4: #abb1ba;;
 $gray-5: #999;
 $gray-6: #cacaca;
+$gray-7: #ececec;
+$gray-8: #9097a1;
 
 $black-1: rgba(0,0,0, .3);
 $black-2: #231f20;
@@ -41,7 +43,8 @@ $bg-7: #3f464c;
 $bg-gradient: linear-gradient(to top, #dfdfdf 0%, #fefefe 100%);
 
 //shadows, borders, rgba, other
-$border-1: #ccc;
+$border-1: rgba(130, 134, 137, .12);
+$border-2: #ccc;
 $text-shadow-1: 0 1px 0 white;
 $box-shadow-1: 0 1px 0 white, inset 0 1px 0 rgba(0, 0, 0, 0.4);
 

@@ -45,8 +45,7 @@
     "gulp.spritesmith": "^6.3.0",
     "imagemin-jpegtran": "^5.0.2",
     "imagemin-optipng": "^5.2.1",
-    "run-sequence": "^1.2.2",
-    "useref": "^1.2.0"
+    "run-sequence": "^1.2.2"
   },
   "scripts": {
     "test": "editorconfig-tools check *",

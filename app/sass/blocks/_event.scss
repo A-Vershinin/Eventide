@@ -1,0 +1,114 @@
+.event {
+  position: relative;
+  margin-bottom: 200px;
+  padding-top: rem(105px);
+  padding-bottom: rem(90px);
+  background-color: $bg-4;
+  border-bottom: 8px solid $border-1;
+  @extend %clearfix;
+}
+.event__desc {
+  margin-bottom: 120px;
+  color: $gray-1;
+  font-weight: 400;
+}
+.event__title {
+  color: $gray-3;
+  margin-bottom: rem(30px);
+  font-size: rem(30px);
+  line-height: rem(30px);
+  font-family: $montserrat-regular;
+  text-transform: uppercase;
+}
+.event__text {
+  margin-bottom: rem(30px);
+  font-size: rem(17px);
+  line-height: rem(25px);
+  font-family: $ubuntu-regular;
+  &--lg {
+    font-size: rem(22px);
+    line-height: rem(30px);
+  }
+}
+.event__tabs {
+  border: 3px solid $gray-7;
+  border-radius: 4px;
+}
+.event__tabs .tab-content {
+  @extend %clearfix;
+  position: relative;
+  padding: rem(30px) rem(20px);
+}
+.event__tabs .nav-tabs > li > a {
+  color: $gray-4;
+  font-size: rem(18px);
+  line-height: rem(34px);
+  font-family: $ubuntu-bold;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: $gray-7;
+  &:hover, &:active {
+    color: $accent;
+  }
+}
+.event__tabs .nav-tabs > li.active >  a {
+  color: $accent;
+  background-color: $bg-4;
+}
+.event__tabs .tab-content {
+  color: $gray-5;
+  font-size: rem(17px);
+  line-height: rem(26px);
+  font-family: $ubuntu-regular;
+  font-weight: 400;
+}
+.event__tab-text {
+  margin-bottom: 30px;
+  text-align: left;
+}
+.event__tab-list {
+  @extend %ul-reset;
+  float: left;
+    margin-left: rem(20px);
+}
+.event__tab-list-item {
+  max-width: 286px;
+  line-height: rem(36px);
+  & .fa {
+    color: $accent;
+    margin-right: rem(12px);
+  }
+}
+.event__tab-img {
+  float: right;
+  height: rem(118px);
+  max-width: rem(188px);
+  width: 100%;
+  margin-top: 7px;
+  background-image: url("../img/decor/here@1x.png");
+  @extend %cover;
+  @media #{$retina} {
+    background-image: url("../img/decor/here@2x.png");
+  }
+}
+.event__speakers {}
+
+
+@media screen and #{(min-width: 768px)} {
+  .nav-tabs.nav-justified > .active > a,
+  .nav-tabs.nav-justified > li > a,
+  .nav-tabs.nav-justified > .active > a:hover,
+  .nav-tabs.nav-justified > .active > a:focus {
+    border: none;
+    border-radius: 0;
+  }
+}
+@media screen and #{($laptop-point-widths-des)} {
+
+}
+@media screen and #{($tablet-point-widths-des)} {
+
+}
+@media screen and #{($phone-point-widths-des)} {
+
+}
