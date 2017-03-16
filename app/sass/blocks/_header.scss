@@ -58,19 +58,6 @@
     font-size: rem(16px);
     line-height: rem(50px);
     border: none;
-    &--blue {
-      background-color: $blue-3;
-    }
-    &--gray {
-      background-color: $gray-2;
-    }
-    &:hover {
-      background-color: $accent;
-    }
-    &:active {
-      color: $light-1;
-      background-color: $accent-active;
-    }
     &:focus {
       color: $light-1;
       outline: none;

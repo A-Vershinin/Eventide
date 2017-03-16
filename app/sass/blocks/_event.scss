@@ -8,7 +8,7 @@
   @extend %clearfix;
 }
 .event__desc {
-  margin-bottom: 120px;
+  margin-bottom: rem(120px);
   color: $gray-1;
   font-weight: 400;
 }
@@ -91,7 +91,119 @@
     background-image: url("../img/decor/here@2x.png");
   }
 }
-.event__speakers {}
+.event__speakers {
+  text-align: center;
+}
+.event__speakers-title {
+  margin-bottom: rem(15px);
+  color: $gray-2;
+  font-size: rem(30px);
+  line-height: rem(25px);
+  font-family: $montserrat-regular;
+  font-weight: 400;
+}
+.event__speakers-text {
+  margin-bottom: rem(65px);
+  color: $gray-3;
+  font-size: rem(22px);
+  line-height: 1;
+  font-family: $ubuntu-regular;
+  font-weight: 400;
+}
+.event__speakers-list {
+  @extend %ul-reset;
+  @extend %clearfix;
+  margin-bottom: rem(70px);
+}
+.event__speakers-item {
+
+}
+.event__speakers-pict {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  max-width: rem(142px);
+  max-height: rem(142px);
+  margin-bottom: rem(25px);
+  background-color: $bg-3;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    & .event__speakers-overlay {
+      opacity: 1;
+    }
+  }
+}
+.event__speakers-pict:hover + .event__speakers-name {
+  color: $blue-1;
+}
+.event__speakers-overlay {
+  @extend %absolute-center;
+  z-index: 30;
+  text-indent: -9999px;
+  background-color: $blue-1;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.sevent__speakers-overlay-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  svg {
+    position: absolute;
+    z-index: 40;
+    top: 38%;
+    left: 38%;
+    fill: $light-1;
+  }
+}
+.event__speakers-name {
+  margin-bottom: 15px;
+  color: $gray-9;
+  font-size: rem(20px);
+  line-height: rem(25px);
+  font-family: $ubuntu-medium;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.event__speakers-desc {
+  padding: 0 rem(16px);
+  color: $gray-1;
+  font-size: rem(16px);
+  line-height: rem(25px);
+  font-family: $ubuntu-regular;
+  font-weight: 400;
+}
+.event__speakers-footer {
+  margin-bottom: rem(24px);
+  color: $gray-3;
+  font-size: rem(22px);
+  line-height: rem(30px);
+  font-family: $ubuntu-regular;
+  font-weight: 400;
+}
+.event__speakers-btn {
+  max-width: rem(156px);
+  height: rem(50px);
+  padding: 0 rem(36px);
+  font-size: rem(16px);
+  line-height: rem(50px);
+  border: none;
+  &:focus {
+    color: $light-1;
+    outline: none;
+  }
+  .fa {
+    margin-left: 6px;
+  }
+}
+
+
 
 
 @media screen and #{(min-width: 768px)} {
