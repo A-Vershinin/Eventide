@@ -8,9 +8,9 @@
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
-  color: $gray-2;
+  color: $light-1;
   background-color: transparent;
-  border: 1px solid $light-2;
+  border: 1px solid $light-1;
   border-radius: rem(4px);
   text-overflow: ellipsis;
   cursor: pointer;
@@ -19,11 +19,11 @@
   transition: .3s ease;
   user-select: none;
   &:hover {
-    color: $light-2;
+    color: $light-1;
     background-color: $accent;
   }
   &:active {
-    color: $light-2;
+    color: $light-1;
     background-color: $accent-active;
   }
 }

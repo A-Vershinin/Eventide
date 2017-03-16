@@ -24,19 +24,19 @@ html {
 input, textarea {
   color: $gray-1;
   background-color: $bg-1;
-  border: 1px solid $gray-2;
+  border: 1px solid $blue-1;
   font-size: $font-size-base;
   line-height: $lin-height-base;
   font-family: $ubuntu-regular;
   border-radius: 5px;
   &::-webkit-input-placeholder {
-    color: $gray-3;
+    color: $gray-1;
   }
   &:-moz-placeholder {
-    color: $gray-3;
+    color: $gray-1;
   }
   &:-ms-input-placeholder {
-    color: $gray-3;
+    color: $gray-1;
   }
 }
 a:visited,

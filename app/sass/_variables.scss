@@ -6,43 +6,54 @@ $ubuntu-regular: "UbuntuRegular", "Arial", sans-serif;
 $ubuntu-medium: "UbuntuMedium", "Arial", sans-serif;
 $ubuntu-bold: "UbuntuBold", "Arial", sans-serif;
 
-
 //Цвета, фон//
-$accent: #3498db;
-$accent-active: #45687F;
+$accent: rgba(44, 199, 193, .7);
+$accent-active: lighten($accent, 35%);
 
-$gray-1: #7a7a7a;
-$gray-2: #8a8a8a;
-$gray-3: #606060;
-$gray-4: #383838;
-$gray-5: #e4e4e4;
-$gray-6: #aaa;
+$gray-1: #828282;
+$gray-2: #6a7079;
+$gray-3: #828689;
+$gray-4: #abb1ba;;
+$gray-5: #999;
+$gray-6: #cacaca;
 
-$blue-1: #3498db;
-$blue-2: #00a99d;;
+$black-1: rgba(0,0,0, .3);
+$black-2: #231f20;
 
-//shadows, borders, rgba, other
-$light-1: #dedede;
-$light-2: #e4e4e4;
-$light-3: #ffffff;
+$blue-1: #2cc7c1;
+$blue-2: #4ed2d7;
+$blue-3: #7ea4e8;
+$blue-4: #7ea4e8;
+$blue-4: #00acee;
 
+$light-1: #ffffff;
+$light-2: #f0f0f1;
+$light-3: #ececec;
+$light-3: #efefef;
 
 //background-colors:
-$bg-1: #fff;
-
-
+$bg-1: #525b64;
+$bg-2: #6a7079;
+$bg-3: #cdd0d2;
+$bg-4: #fff;
 $bg-7: #3f464c;
 
+$bg-gradient: linear-gradient(to top, #dfdfdf 0%, #fefefe 100%);
 
-$bg-gradient: linear-gradient(to right, #f9f9f9 0%, transparent 20%,
-  transparent 50%, transparent 80%, #f9f9f9 100%);
+//shadows, borders, rgba, other
+$border-1: #ccc;
+$text-shadow-1: 0 1px 0 white;
+$box-shadow-1: 0 1px 0 white, inset 0 1px 0 rgba(0, 0, 0, 0.4);
+
+
 //размер шрифта//
 $font-size-base: 16px;
+$lin-height-base: 24px/$font-size-base;
+
 $font-size-desktop: 16px;
 $font-size-laptop: 15px;
 $font-size-tablet: 14px;
 $font-size-phone: 13px;
-$lin-height-base: 24px/$font-size-base;
 
 //брейкпоинты//
 //Mobile//

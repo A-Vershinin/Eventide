@@ -37,19 +37,52 @@
   <svg display="none" xmlns="http://www.w3.org/2000/svg"></svg>
   <div class="wrapper">
     <!-- HEADER -->
-    <header class="header">
-      <div class="container">
-
+    <header class="header" id="header">
+      <div class="header__wrap">
+        <div class="header__block">
+          <div class="header__block-cell">
+            <div class="header__block-center">
+              <div class="header__logo">
+                <div class="logo">
+                  <a href="#" class="logo__link">
+                    <picture>
+                      <!--[if IE 9]><video style="display: none;"><![endif]-->
+                      <source media="(max-width: 992px)"
+                        srcset="img/decor/logo@2x.png 2x, img/decor/logo@1x.png 1x">
+                      <source media="(max-width: 768px)"
+                        srcset="img/decor/logo@2x.png 2x, img/decor/logo@1x.png 1x">
+                      <source media="(max-width: 480px)"
+                        srcset="img/decor/logo@2x.png 2x, img/decor/logo@1x.png 1x">
+                      <!--[if IE 9]></video><![endif]-->
+                      <img class="logo__img" src="img/decor/logo@1x.png" srcset="img/decor/logo@2x.png 2x"
+                        width="549" height="155" alt="logotype" title="Page logo">
+                    </picture>
+                  </a>
+                </div>
+              </div>
+              <h1 class="header__title">November 08-10 | Sydney</h1>
+              <p class="header__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Quos repudiandae cupiditate nulla quis commodi ex sapiente, non rem, pariatur
+                earum aliquam! A ducimus sint voluptas temporibus ullam, saepe dolorem non odio
+                sapiente, quia, reprehenderit iste.</p>
+              <div class="header__buttons">
+                <a href="#" class="btn btn--blue">Register<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+                <a href="#" class="btn btn--gray">Discover<i></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+
     </header>
     <!-- END HEADER -->
 
     <!-- MAIN CONTENT -->
     <main class="content">
+      <section class="event">
 
-      <div class="container">
-
-      </div>
+      </section>
     </main>
     <!-- END MAIN CONTENT -->
 
@@ -58,22 +91,6 @@
 
       <section class="footer__socials">
         <div class="container">
-          <div class="logo footer__socials-logo">
-            <a href="#" class="logo__link footer__socials-logo-link">
-              <picture>
-                <!--[if IE 9]><video style="display: none;"><![endif]-->
-                <source media="(max-width: 992px)"
-                  srcset="img/decor/logo2@2x.jpg 2x, img/decor/logo2@1x.jpg 1x">
-                <source media="(max-width: 768px)"
-                  srcset="img/decor/logo2@2x.jpg 2x, img/decor/logo2@1x.jpg 1x">
-                <source media="(max-width: 480px)"
-                  srcset="img/decor/logo2@2x.jpg 2x, img/decor/logo2@1x.jpg 1x">
-                <!--[if IE 9]></video><![endif]-->
-                <img class="logo__img" src="img/decor/logo2@1x.jpg" srcset="img/decor/logo2@2x.jpg 2x"
-                  width="247" height="69" alt="logotype" title="footer logo">
-              </picture>
-            </a>
-          </div>
           <div class="footer__socials-wrap">
             <ul class="socials">
               <!-- <li class="socials__item ">
@@ -87,7 +104,6 @@
           </div>
         </div>
       </section>
-
       <section class="footer__copyright">Copyright &copy; 2017 Eventide</section>
     </footer>
     <!-- END FOOTER -->
