@@ -11,8 +11,8 @@ var gulp = require("gulp"), //подключаем Gulp
     uncss = require('gulp-uncss'), //удалямем не использованный css
     rename = require("gulp-rename"), //переименовываем файлы
     imagemin = require("gulp-imagemin"), //сжимаем картинки
-    spritesmith = require('gulp.spritesmith'), //собираем спрайты png
-    svgstore = require("gulp-svgstore"), //создаём svg-спрайт
+    spritesmith = require('gulp.spritesmith'), //собираем png-спрайт
+    svgstore = require("gulp-svgstore"), //собираем svg-спрайт
     svgmin = require("gulp-svgmin"), //сжимаем svg
     concat = require("gulp-concat"), //склеиваим файлы
     uglify = require("gulp-uglifyjs"), //сжимаем все js файлы
@@ -40,7 +40,7 @@ var gulp = require("gulp"), //подключаем Gulp
 gulp.task("styles", function() {
   gulp.src("app/sass/style.scss")
     .pipe(plumber({ //Запрещаем ошибкам прерывать скрипт
-      errorHandler: notify.onError(function(err) { // nofity - представление ошибок в удобном для вас виде.
+      errorHandler: notify.onError(function(err) { // nofity - представление ошибок в удобном виде.
         return {
           title: 'Styles',
           message: err.message
@@ -201,7 +201,6 @@ gulp.task("css:vendor", function() {
   }))
   .pipe(csso())
   .pipe(rename({suffix: '.min'}))
-  // .pipe(rename("vendor.min.css"))
   .pipe(gulp.dest("build/css"));
 });
 //js-common
@@ -212,7 +211,6 @@ gulp.task("js:common", function() {
   .pipe(sourcemaps.write())
   .pipe(uglify())
   .pipe(rename({suffix: '.min'}))
-  // .pipe(rename("common.min.js"))
   .pipe(gulp.dest("build/js"))
 });
 //js-библиотеки
@@ -220,7 +218,6 @@ gulp.task("js:vendor", function() {
   return gulp.src("build/js/vendor.js")
   .pipe(uglify())
   .pipe(rename({suffix: '.min'}))
-  // .pipe(rename("vendor.min.js"))
   .pipe(gulp.dest("build/js"));
 });
 //js-polyfills
@@ -228,7 +225,6 @@ gulp.task("js:polyfills", function() {
   return gulp.src("build/js/polyfills.js")
   .pipe(uglify())
   .pipe(rename({suffix: '.min'}))
-  // .pipe(rename("polyfills.min.js"))
   .pipe(gulp.dest("build/js"));
 });
 

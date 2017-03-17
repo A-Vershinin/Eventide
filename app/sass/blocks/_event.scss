@@ -1,6 +1,5 @@
 .event {
   position: relative;
-  margin-bottom: 200px;
   padding-top: rem(105px);
   padding-bottom: rem(90px);
   background-color: $bg-4;
@@ -282,6 +281,9 @@
   }
 }
 @media screen and #{($phone-point-widths-des)} {
+  .event__speakers-title {
+    margin-bottom: rem(20px);
+  }
   .event__speakers-list .col-sm-6 {
     width: 100%;
   }

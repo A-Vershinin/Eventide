@@ -76,6 +76,7 @@
 }
 //обрезание текста
 %text-overflow {
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

@@ -11,24 +11,16 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
-    //menu-toggle
-    // mobileMenu();
-    function mobileMenu() {
-      var menuMain = document.querySelector(".menu"),
-          menuToggle = document.querySelector(".menu__toggle");
-      menuMain.classList.remove("menu--nojs");
-
-      menuToggle.addEventListener("click", function() {
-        if (menuMain.classList.contains("menu--closed")) {
-          menuMain.classList.remove("menu--closed");
-          menuMain.classList.add("menu--opened");
-        } else {
-          menuMain.classList.add("menu--closed");
-          menuMain.classList.remove("menu--opened");
-        }
+    //event-shedule__tabs acco
+    chengeIconAcco();
+    function chengeIconAcco() {
+      $('.collapse').on('show.bs.collapse', function() {
+        $(this).prev().find(".fa").removeClass("fa-plus-circle").addClass("fa-minus-circle");
+      });
+      $('.collapse').on('hide.bs.collapse', function() {
+        $(this).prev().find(".fa").removeClass("fa-minus-circle").addClass("fa-plus-circle");
       });
     }
-
 
     //page map
     // pageMap();

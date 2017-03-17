@@ -7,12 +7,12 @@
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:A-Vershinin/Eventide.git"
   },
   "bugs": {
-    "url": ""
+    "url": "git@github.com:A-Vershinin/Eventide/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/A-Vershinin/Eventide",
   "devDependencies": {
     "autoprefixer": "^6.7.1",
     "browser-sync": "^2.18.6",
