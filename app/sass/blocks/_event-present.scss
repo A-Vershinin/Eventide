@@ -4,7 +4,6 @@
   padding-bottom: rem(90px);
   background-color: $bg-4;
   @extend %clearfix;
-  margin-bottom: 200px;
 }
 .event-shedule {
   margin-bottom: rem(120px);
@@ -166,37 +165,12 @@
   }
 }
 @media screen and #{($desktop-point-widths-des)} {
-  // .event {
-  //   padding-top: rem(60px);
-  //   padding-bottom: rem(50px);
-  // }
-  // .event__about {
-  //   margin-bottom: rem(60px);
-  // }
-  // .event__speakers-text {
-  //   margin-bottom: rem(25px);
-  // }
-  // .event__speakers-list {
-  //   margin-bottom: rem(40px);
-  // }
   .event-shedule {
     margin-bottom: rem(80px);
   }
 }
 @media screen and #{($laptop-point-widths-des)} {
-  // .event {
-  //   padding-top: rem(30px);
-  //   padding-bottom: rem(20px);
-  // }
-  // .event__about {
-  //   margin-bottom: rem(30px);
-  // }
-  // .event__speakers-text {
-  //   margin-bottom: rem(15px);
-  // }
-  // .event__speakers-list {
-  //   margin-bottom: rem(20px);
-  // }
+
   .event-shedule {
     margin-bottom: rem(60px);
   }
@@ -205,6 +179,10 @@
   }
 }
 @media screen and #{($tablet-point-widths-des)} {
+  .event-present {
+    padding-top: rem(40px);
+    padding-bottom: rem(40px);
+  }
   .event-shedule .nav-tabs.nav-justified > li > a,
   .event-shedule .nav-tabs.nav-justified > .active > a {
     border: none;
@@ -216,13 +194,8 @@
   .event-shedule__title {
     text-align: center;
   }
-  // .event__speakers-list .col-sm-6 {
-  //   width: 50%;
-  //   float: left;
-  // }
+
 }
 @media screen and #{($phone-point-widths-des)} {
-  // .event__speakers-list .col-sm-6 {
-  //   width: 100%;
-  // }
+
 }
