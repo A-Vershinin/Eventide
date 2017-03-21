@@ -203,9 +203,10 @@
 .event__popup-btn {
   max-width: rem(156px);
   height: rem(50px);
-  padding: 0 rem(36px);
+  padding-left: rem(30px);
+  padding-right: rem(42px);
   font-size: rem(16px);
-  line-height: rem(50px);
+  line-height: rem(44px);
   border: none;
   &:focus {
     color: $light-1;

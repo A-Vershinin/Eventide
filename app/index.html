@@ -17,6 +17,7 @@
     <!-- build:css css/vendor.css -->
     <link rel="stylesheet" href="bower/normalize-css/normalize.css">
     <link rel="stylesheet" href="bower/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower/select2/select2.css">
     <!-- endbuild -->
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 9]>
@@ -488,9 +489,48 @@
         </section>
         <section class="event-launch" id="event-launch">
           <div class="container">
-            <h2 class="event-launch__title">THE MOST SIMPLE WAY TO LAUNCH YOUR EVENT</h2>
-            <p class="event-launch__desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, est?</p>
+            <div class="row">
+              <h2 class="event-launch__title">THE MOST SIMPLE WAY TO LAUNCH YOUR EVENT</h2>
+              <p class="event-launch__desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, est?</p>
+            </div>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="event-launch__block">
+                  <form class="event-launch__form" id="event-launch-form">
+                    <div class="row">
+                      <div class="col-md-3 form-group">
+                        <label class="sr-only" for="name-field">Name</label>
+                        <input type="text" class="form-control form-control--name" id="name-field" placeholder="Name" required>
+                        <span class="form-control-feedback form-control__check" aria-hidden="true">
+                          <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                      <div class="col-md-3 form-group">
+                        <label class="sr-only" for="email-field">Email address</label>
+                        <input type="email" class="form-control form-control--email" id="email-field" placeholder="Email Adress" required>
+                        <span class="form-control-feedback form-control__check" aria-hidden="true">
+                          <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                      <div class="col-md-3 form-group">
+                        <select name="plan" class="form-control-select" id="select-field">
+                          <option class="hidden" selected>Select Plan</option>
+                          <option value="20">1 Day - $20</option>
+                          <option value="25">2 Day - $25</option>
+                          <option value="40">3 Day - $40</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <button type="submit" class="btn btn--blue form-inline__btn" name="button">
+                          Register<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         <!-- END EVENT SECTION -->
@@ -544,6 +584,8 @@
     <!-- build:js js/vendor.js -->
     <script src="./bower/jquery/dist/jquery.js"></script>
     <script src="./bower/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="./bower/bootstrap-validator/dist/validator.js"></script>
+    <script src="./bower/select2/select2.js"></script>
 
     <!-- endbuild -->
     <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script> -->

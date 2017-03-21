@@ -22,6 +22,25 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
 
+    //validate event-launch-form
+    checkForm();
+    function checkForm() {
+      $("#event-launch-form").validator({
+        feedback: {
+          success: 'fa-check-circle',
+          error: 'fa-times-circle'
+        }
+      });
+    }
+
+    // Select
+    changeSelect();
+    function changeSelect() {
+      $(".form-control-select").select2({
+        minimumResultsForSearch: Infinity
+      });
+    }
+
     //page map
     // pageMap();
     function pageMap() {
