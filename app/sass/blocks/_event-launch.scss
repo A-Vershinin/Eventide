@@ -1,6 +1,5 @@
 .event-launch {
   position: relative;
-  margin-bottom: 200px;
   padding-top: rem(150px);
   padding-bottom: rem(150px);
   text-align: center;
@@ -174,4 +173,26 @@ body .select2-drop .select2-highlighted {
   .fa {
     margin-left: 6px;
   }
+}
+@media screen and #{($desktop-point-widths-des)} {
+  .event-launch {
+    padding-top: rem(80px);
+    padding-bottom: rem(80px);
+  }
+}
+@media screen and #{($laptop-point-widths-des)} {
+  .event-launch {
+    padding-top: rem(50px);
+    padding-bottom: rem(50px);
+  }
+}
+@media screen and #{($tablet-point-widths-des)} {
+  .event-launch {
+    padding-top: rem(25px);
+    padding-bottom: rem(25px);
+  }
+
+}
+@media screen and #{($phone-point-widths-des)} {
+
 }
