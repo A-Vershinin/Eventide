@@ -24,11 +24,13 @@
   text-decoration: none;
   cursor: pointer;
   transition: .4s ease;
+  filter: contrast(0);
   img {
     width: 100%;
   }
   &:hover {
     transform: scale(1.05);
+    filter: contrast(1);
   }
 }
 @media screen and #{($desktop-point-widths-des)} {
