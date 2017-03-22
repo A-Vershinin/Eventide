@@ -196,9 +196,9 @@ gulp.task("extras", function() {
 //css-библиотеки
 gulp.task("css:vendor", function() {
   return gulp.src("build/css/vendor.css")
-  .pipe(uncss({ //чистим файл от неиспользованного css
-    html: ['build/*.html']
-  }))
+  // .pipe(uncss({ //чистим файл от неиспользованного css
+  //   html: ['build/*.html']
+  // }))
   .pipe(csso())
   .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest("build/css"));
@@ -215,16 +215,16 @@ gulp.task("js:common", function() {
 });
 //js-библиотеки
 gulp.task("js:vendor", function() {
-  return gulp.src("build/js/vendor.js")
+  return gulp.src("build/js/vendor.min.js")
   .pipe(uglify())
-  .pipe(rename({suffix: '.min'}))
+  // .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest("build/js"));
 });
 //js-polyfills
 gulp.task("js:polyfills", function() {
-  return gulp.src("build/js/polyfills.js")
+  return gulp.src("build/js/polyfills.min.js")
   .pipe(uglify())
-  .pipe(rename({suffix: '.min'}))
+  // .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest("build/js"));
 });
 

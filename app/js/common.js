@@ -96,9 +96,5 @@ document.addEventListener("DOMContentLoaded", function() {
         mobile: false
       }).init();
     }
-
-    console.log("JS active");
-
-
   })();
 });
