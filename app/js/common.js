@@ -73,6 +73,21 @@ document.addEventListener("DOMContentLoaded", function() {
       google.maps.event.addDomListener(window, 'load', initialize);
     }
 
+    // btn Up
+    scrollUp();
+    function scrollUp() {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 500) {
+          $(".scrollup").fadeIn();
+        } else {
+          $(".scrollup").fadeOut();
+        }
+      });
+      $(".scrollup").click(function() {
+        $("html, body").animate({scrollTop: 0}, 1500);
+        return false;
+      })
+    }
     // animation
     wowAnimation();
     function wowAnimation() {
