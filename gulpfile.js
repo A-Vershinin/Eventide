@@ -238,15 +238,15 @@ gulp.task("php", function() {
 });
 //Иконочные шрифты
 gulp.task("icon-fonts", function() {
-  return gulp.src("app/bower/**/fonts/*.{woff,woff2}")
-  .pipe(gulp.dest("app/fonts/"))
+  // return gulp.src("app/bower/**/fonts/*.{woff,woff2}")
+  return gulp.src("app/bower/font-awesome/fonts/*.*")
+  .pipe(gulp.dest("app/fonts/FontAwesome"))
 });
 
 // Собираем папку BUILD
 gulp.task("build", function(fn) {
   run(
     "clean",
-    // "icon-fonts",
     "copy",
     "useref",
     "styles",
@@ -257,6 +257,7 @@ gulp.task("build", function(fn) {
     "svg:sprite",
     "js:vendor",
     "js:polyfills",
+    "icon-fonts",
     "extras",
     fn
   );

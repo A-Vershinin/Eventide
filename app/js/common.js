@@ -73,6 +73,14 @@ document.addEventListener("DOMContentLoaded", function() {
       google.maps.event.addDomListener(window, 'load', initialize);
     }
 
+    // animation
+    wowAnimation();
+    function wowAnimation() {
+      new WOW({
+        offset: 100,
+        mobile: false
+      }).init();
+    }
 
     console.log("JS active");
 
